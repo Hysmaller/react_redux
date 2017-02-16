@@ -121,7 +121,7 @@ class List extends React.Component{
                     <input type="number" ref = 'quantity'/>
                 </td>
                 <td>
-                <button type="button" onClick={ () => this.addCart(this.props.item)}>添加到购物车</button>
+                    <button type="button" onClick={ () => this.addCart(this.props.item)}>添加到购物车</button>
                 </td>
             </tr>
         )
@@ -135,8 +135,8 @@ class Orderlist extends React.Component{
     render(){
         let { goodsList } = this.props;
         return (
-            <table>
-                <thead>
+            <table className="goodsTable m-b-md">
+                <thead className="thead">
                     <tr>
                         <th>
                             商品
@@ -151,13 +151,17 @@ class Orderlist extends React.Component{
                             总价
                         </th>
                         <th>
-                            折扣价
+                            销售税
+                        </th>
+                        <th>
+                            进口税
                         </th>
                     </tr>
                 </thead>
+                <tbody>
                 {
                     goodsList.map(( item , i ) => {
-                    return(
+                        return(
                             <tr key={i}>
                                 <td>
                                     {item.goods}
@@ -165,14 +169,23 @@ class Orderlist extends React.Component{
                                 <td>
                                     {item.quantity}
                                 </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    {item.price}
+                                </td>
+                                <td>
+                                    {item.totalPrice}
+                                </td>
+                                <td>
+                                    {item.taxPrice}
+                                </td>
+                                <td>
+                                    {item.importPrice}
+                                </td>
                             </tr>
                         )
                     })
                 }
-
+                </tbody>
             </table>
         )
     }
