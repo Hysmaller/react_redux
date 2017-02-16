@@ -1,0 +1,26 @@
+#app{
+  width: 900px;
+  height: auto;
+  margin: auto;
+}
+.goodsTable{
+  border-collapse:separate;
+  border-spacing:0px 0px;
+  width: 100%;
+}
+.goodsTable thead tr th{
+  background: #777;
+  line-height: 35px;
+  padding: 5px 15px;
+  color: #ffffff;
+  text-align: left;
+}
+.goodsTable tbody tr td{
+  line-height: 35px;
+  padding: 5px 15px;
+  color: #999;
+  text-align: left;
+}
+.m-b-md {
+  margin-bottom: 20px;
+}

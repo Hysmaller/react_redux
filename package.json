@@ -1,5 +1,5 @@
 {
-  "name": "webpack-dev",
+  "name": "react_redux",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.oschina.net/jack-team/webpack-dev.git"
+    "url": "git@github.com:Hysmaller/react_redux.git"
   },
   "keywords": [
     "wepack",
     "react"
   ],
-  "author": "jiangtao",
+  "author": "huangyu",
   "license": "ISC",
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
