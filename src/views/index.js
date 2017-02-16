@@ -72,7 +72,7 @@ class GoodsList extends React.Component{
     }
     render(){
         let { props } = this;
-        console.log(props.indexReducers.goodsList)
+
         return (
             <div>
                 <table className="goodsTable m-b-md">
@@ -92,7 +92,7 @@ class GoodsList extends React.Component{
                     }
                     </tbody>
                 </table>
-                <orderlist item2 = {props.indexReducers.goodsList} />
+                <Orderlist  goodsList = {props.indexReducers.goodsList} />
             </div>
         )
     }
@@ -128,13 +128,12 @@ class List extends React.Component{
     }
 };
 
-class orderlist extends React.Component{
+class Orderlist extends React.Component{
     constructor(...args){
-        super(...arg);
+        super(...args);
     }
     render(){
-        //let { props } = this;
-        //console.log(props)
+        let { goodsList } = this.props;
         return (
             <table>
                 <thead>
@@ -156,13 +155,24 @@ class orderlist extends React.Component{
                         </th>
                     </tr>
                 </thead>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {
+                    goodsList.map(( item , i ) => {
+                    return(
+                            <tr key={i}>
+                                <td>
+                                    {item.goods}
+                                </td>
+                                <td>
+                                    {item.quantity}
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        )
+                    })
+                }
+
             </table>
         )
     }

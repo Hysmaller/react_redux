@@ -25,7 +25,6 @@ export default ( state = initState , action ) => {
 
             if(!have) copyState.goodsList.push(goods);
 
-           // console.log(copyState.goodsList);
             return copyState;
             break;
         default:
