@@ -39,7 +39,7 @@ var webpackBaseConfig = {
                 exclude: /node_modules/,
                 query: {
                     //这里需要下载 babel-preset-react 依赖才能编译react
-                    presets: ['react','es2015'],
+                    presets: ['react','es2015','stage-0'],
                     cacheDirectory:true
                 }
             },

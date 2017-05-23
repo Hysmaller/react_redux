@@ -2,7 +2,8 @@
  * Created by huangyu on 2017/2/14.
  */
 
-var util = require("./webpack.util"),
+var webpack = require('webpack') ,
+    util = require("./webpack.util"),
     path = require("path");
 
 var baseConfig = require("./webpack.config");
@@ -25,6 +26,13 @@ var devServer = {
     }
 };
 
+baseConfig.plugins = baseConfig.plugins.concat([
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.LoaderOptionsPlugin({
+        debug: true
+    })
+])
 baseConfig.devServer = devServer
 
 module.exports = baseConfig;

@@ -4,9 +4,6 @@
 
 var webpack = require('webpack');
 var baseConfig = require('./webpack.config');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var fs = require('fs');
 
 var prodConfig = {
     plugins:[

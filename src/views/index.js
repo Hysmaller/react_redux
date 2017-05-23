@@ -2,6 +2,7 @@
  * Created by huangyu on 2017/2/16.
  */
 import css from './../css/index.scss';
+import CountDown from './../components/count-down' ;
 import reduxComBind from './../redux'
 import indexActions from './../redux/actions/index';
 import indexReducers from './../redux/reducer/index'
@@ -67,12 +68,23 @@ var goodsList = [
 ]
 
 class GoodsList extends React.Component{
-    constructor(...args){
-        super(...args);
+    constructor({CountDown:CountDown}){
+        super(CountDown);
+        this.state={
+            isShow : true
+        }
+    }
+    componentDidMount(){
+
+    }
+    onStateChange(showState){
+        this.setState({
+            isShow:showState
+        });
     }
     render(){
         let { props } = this;
-
+        let { isShow } = this.state ;
         return (
             <div>
                 <table className="goodsTable m-b-md">
@@ -92,6 +104,10 @@ class GoodsList extends React.Component{
                     }
                     </tbody>
                 </table>
+                { isShow ?
+                    <CountDown time="2017-05-23 18:01"
+                    callbackParent={this.onStateChange.bind(this)}
+                           isShow={this.state.isShow}/> : null }
                 <Orderlist  goodsList = {props.indexReducers.goodsList} />
             </div>
         )
@@ -105,8 +121,12 @@ class List extends React.Component{
     }
     addCart( goods ){
         let { props , refs } = this;
-        goods.quantity = refs.quantity.value;
-        props.indexActions.addCart(goods);
+        if(refs.quantity.value && refs.quantity.value > 0 ){
+            goods.quantity = refs.quantity.value;
+            props.indexActions.addCart(goods);
+        }else {
+            alert('请输入正确的商品数量！')
+        }
     }
     render(){
         return (
@@ -190,8 +210,6 @@ class Orderlist extends React.Component{
         )
     }
 }
-
-
 reduxComBind({
     actions:{
         indexActions
