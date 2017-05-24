@@ -11,7 +11,13 @@ export default class Plus extends Component{
 
         this.state = {
             loading:false,
-            modalShow:false
+            modalShow:false,
+            modal:{
+                modalTitle:'测试测试' ,
+                modalContent : '中间部分' ,
+                modalFooter : '尾巴'
+            } ,
+
         }
 
     }
@@ -40,7 +46,7 @@ export default class Plus extends Component{
     }
     render(){
         const { children } = this.props;
-        const { loading , modalShow} = this.state;
+        const { loading , modalShow , modal} = this.state;
         return(
             <div className="wrap-box">
                 <div className="app-content">
@@ -49,7 +55,7 @@ export default class Plus extends Component{
                 {/*所有全部组件都写在这里面*/}
                 <div className="plus">
                     <Loading show={loading}/>
-                    <Modal modalShow={modalShow} callBack= {() => this.closeModal()} />
+                    <Modal modalShow={modalShow} callBack= {() => this.closeModal()} modal={modal}/>
                 </div>
             </div>
         )

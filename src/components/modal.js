@@ -15,18 +15,18 @@ export default class Modal extends React.Component{
         }
     }
     render(){
-        const { modalShow , callBack} = this.props ;
+        const { modalShow , callBack , modal} = this.props ;
         return (
             <div className={ !modalShow ? "hide" : ''}>
                 <div className= { "modal fade " + (modalShow ? "in" : '') } onClick={(e)=> this.closeModal(e)}>
                     <div className="modal-content">
                         <div className="modal-header clearfix">
                             <div className="modal-close" onClick={callBack} >x</div>
-                            <h4 className="modal-title">弹窗测试demo</h4>
+                            <h4 className="modal-title">{modal.modalTitle}</h4>
                         </div>
-                        <div className="modal-body"></div>
+                        <div className="modal-body">{modal.modalContent}</div>
                         <div className="modal-footer">
-
+                            {modal.modalFooter}
                         </div>
                     </div>
                 </div>
