@@ -10,6 +10,7 @@ export default class Modal extends React.Component{
         modalShow:false
     }
     closeModal(e){
+        e.stopPropagation();
         if((e.target.children.length > 0 && e.target.children[0].className == 'modal-content')){
             this.props.callBack()
         }

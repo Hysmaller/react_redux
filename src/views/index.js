@@ -122,10 +122,11 @@ class GoodsList extends React.Component{
                     <CountDown time="2017-05-23 21:33"
                     callbackParent={this.onStateChange.bind(this)}
                            isShow={this.state.isShow}/> : null }
+                <Orderlist  goodsList = {props.indexReducers.goodsList} />
+
                 <Plus>
                     <button type="button" onClick={()=>this.showModal()}>显示弹框</button>
                 </Plus>
-                <Orderlist  goodsList = {props.indexReducers.goodsList} />
             </div>
         )
     }
