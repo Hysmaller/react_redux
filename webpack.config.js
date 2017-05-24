@@ -20,7 +20,7 @@ var webpackBaseConfig = {
 
     //入口文件
     entry:{
-        common:[ "react" , "react-dom" ]
+        common:[ "react" , "react-dom",'react-router' ]
     },
 
     //输出

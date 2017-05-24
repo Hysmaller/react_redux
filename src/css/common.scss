@@ -1,0 +1,89 @@
+body{
+  color: #58666e;
+  font-family: 'Hiragino Sans GB',Arial,"Microsoft YaHei","Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
+  font-size: 13px;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+}
+.clearfix {
+  zoom: 1;
+}
+.modal{
+  position: fixed;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.25);
+  outline: none;
+  z-index: 22;
+}
+.fade.in{
+  opacity: 1;
+}
+.fade{
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  -o-transition: opacity .15s linear;
+  -moz-transition: opacity .15s linear;
+  transition: opacity .15s linear;
+}
+.modal.in>.modal-content{
+  -webkit-transform: translate(0);
+  -moz-transform: translate(0);
+  -ms-transform: translate(0);
+  transform: translate(0);
+}
+.modal.fade>.modal-content{
+  -webkit-transition: -webkit-transform .15s ease-out;
+  transition: -webkit-transform .15s ease-out;
+  -o-transition: transform .15s ease-out;
+  -moz-transition: transform .15s ease-out,-moz-transform .15s ease-out;
+  transition: transform .15s ease-out;
+  transition: transform .15s ease-out,-webkit-transform .15s ease-out,-moz-transform .15s ease-out;
+  -webkit-transform: translateY(-25%);
+  -moz-transform: translateY(-25%);
+  -ms-transform: translateY(-25%);
+  transform: translateY(-25%);
+}
+.modal-content{
+  width: 400px;
+  margin: 30px auto 0;
+  border: 1px solid rgba(0,0,0,.2);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.4);
+  -moz-box-shadow: 0 3px 9px rgba(0,0,0,.4);
+  box-shadow: 0 3px 9px rgba(0,0,0,.4);
+  background: #fff;
+}
+.modal-header{
+  padding: 10px 20px;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 2px solid #ff7947;
+}
+.modal-close{
+  float: right;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: .7;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+}
+.modal-title{
+  margin: 0;
+  line-height: 1.42857143;
+  font-size: 18px;
+  font-weight: 800;
+}
+.modal-footer{
+  padding: 12px 20px;
+  border-top: 1px solid #e5e5e5;
+}

@@ -5,7 +5,10 @@ import css from './../css/index.scss';
 import CountDown from './../components/count-down' ;
 import reduxComBind from './../redux'
 import indexActions from './../redux/actions/index';
-import indexReducers from './../redux/reducer/index'
+import indexReducers from './../redux/reducer/index' ;
+import Plus from './../components/Plus'
+
+
 
 var goodsList = [
     {
@@ -68,19 +71,30 @@ var goodsList = [
 ]
 
 class GoodsList extends React.Component{
-    constructor({CountDown:CountDown}){
-        super(CountDown);
+    constructor(...arg){
+        super(...arg);
         this.state={
-            isShow : true
+            isShow : true,
+            modalShow : false
         }
     }
-    componentDidMount(){
+    componentWillMount(){
 
     }
-    onStateChange(showState){
+    componentDidMount(){
+        //loading组件
+        loading();
+        setTimeout(()=>{
+            loadingClose()
+        },3000)
+    }
+    onStateChange(){
         this.setState({
-            isShow:showState
+            isShow:false
         });
+    }
+    showModal(){
+        setModal()
     }
     render(){
         let { props } = this;
@@ -105,9 +119,12 @@ class GoodsList extends React.Component{
                     </tbody>
                 </table>
                 { isShow ?
-                    <CountDown time="2017-05-23 18:01"
+                    <CountDown time="2017-05-23 21:33"
                     callbackParent={this.onStateChange.bind(this)}
                            isShow={this.state.isShow}/> : null }
+                <Plus>
+                    <button type="button" onClick={()=>this.showModal()}>显示弹框</button>
+                </Plus>
                 <Orderlist  goodsList = {props.indexReducers.goodsList} />
             </div>
         )

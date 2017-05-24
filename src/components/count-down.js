@@ -2,7 +2,7 @@
  * Created by huangyu on 2017/5/23.
  */
 
-class CountDown extends React.Component{
+export default class CountDown extends React.Component{
     constructor(...args){
         super(...args) ;
         this.state = {
@@ -34,7 +34,7 @@ class CountDown extends React.Component{
                 timeStr : '00:00:00',
                 isShow : false
             });
-            this.props.callbackParent(this.state.isShow)
+            this.props.callbackParent()
             return;
 
         }
@@ -59,4 +59,3 @@ class CountDown extends React.Component{
         )
     }
 };
-export default CountDown ;
