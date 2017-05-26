@@ -11,6 +11,8 @@ var pages = [
     { filename:"appIndex" , chunk : "index"},
     //设置cookie
     { filename:"setCookie" , chunk : "demoCookie"},
+    //cnode首页
+    { filename:"index1" , chunk : "cnodeIndex"},
 ];
 
 pages.forEach( function ( item ) {

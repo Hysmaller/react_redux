@@ -6,7 +6,8 @@ import CountDown from './../components/count-down' ;
 import reduxComBind from './../redux'
 import indexActions from './../redux/actions/index';
 import indexReducers from './../redux/reducer/index' ;
-import Plus from './../components/Plus'
+import Plus from './../components/Plus' ;
+import Select  from  './../components/select' ;
 
 
 
@@ -71,11 +72,56 @@ var goodsList = [
 ]
 
 class GoodsList extends React.Component{
-    constructor(...arg){
-        super(...arg);
+    constructor(props){
+        super(props);
         this.state={
             isShow : true,
-            modalShow : false
+            modalShow : false ,
+            selectData:{
+                defaultData:{
+                    name:'请选择仓库',
+                    id:''
+                },
+                defaultType:'name',
+                selectList:
+                    [
+                        {
+                            name:'张小三',
+                            id:'1',
+                            checked:false
+                        },
+                        {
+                            name:'张小四',
+                            id:'2',
+                            checked:false
+                        },
+                        {
+                            name:'张小五',
+                            id:'3',
+                            checked:false
+                        },
+                        {
+                            name:'张小六',
+                            id:'4',
+                            checked:false
+                        },
+                        {
+                            name:'张小七',
+                            id:'5',
+                            checked:false
+                        },
+                        {
+                            name:'张小八',
+                            id:'6'
+                        },
+                        {
+                            name:'张小九',
+                            id:'7',
+                            checked:true
+                        },
+                    ]
+            },
+            openSelect:false
         }
     }
     componentWillMount(){
@@ -96,11 +142,31 @@ class GoodsList extends React.Component{
     showModal(){
         setModal()
     }
+    selectCallBack(status){
+        const { openSelect } = this.state ;
+        if(status == false){
+            this.setState({
+                openSelect : false
+            });
+            return ;
+        }
+        this.setState({
+            openSelect : openSelect ? false : true
+        })
+    }
     render(){
         let { props } = this;
-        let { isShow } = this.state ;
+        let { isShow , selectData ,openSelect } = this.state ;
         return (
             <div>
+                <div className="search-content clearfix">
+                    <div className="search-item">
+                        <Select selectListShow={(status) => this.selectCallBack(status)} selectChecked={(index) => {this.selectChecked(index)}} selectData={ selectData } openSelect={openSelect}/>
+                    </div>
+                    <div className="search-item">
+                        <Select selectListShow={(status) => this.selectCallBack(status)} selectChecked={(index) => {this.selectChecked(index)}} selectData={ selectData } openSelect={openSelect}/>
+                    </div>
+                </div>
                 <table className="goodsTable m-b-md">
                     <thead>
                     <tr className="thead">
@@ -119,11 +185,10 @@ class GoodsList extends React.Component{
                     </tbody>
                 </table>
                 { isShow ?
-                    <CountDown time="2017-05-23 21:33"
+                    <CountDown time="2017-05-26 21:33"
                     callbackParent={this.onStateChange.bind(this)}
                            isShow={this.state.isShow}/> : null }
                 <Orderlist  goodsList = {props.indexReducers.goodsList} />
-
                 <Plus>
                     <button type="button" onClick={()=>this.showModal()}>显示弹框</button>
                 </Plus>
